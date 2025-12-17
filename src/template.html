@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="title"><i class="wi wi-day-sunny"></i>Weather App</h1>
+        <form id="weather-form" autocomplete="off">
+            <input type="text" name="cityInput" id="location" placeholder="Search for location" autocomplete="off">
+            <!--<ul id="suggestions"></ul>-->
+        </form>
+        <button id="unit-toggle">Switch to °F</button>
+    </header>
+    <main>
+        <h2></h2>
+        <div class="weather-container">
+            <div class="weather-main">
+                <div class="main-top">
+                    <div class="location-container">
+                        <h3 class="location">(Location)</h3>
+                        <h3 class="date">(Date)</h3>
+                    </div>
+                    <h4 class="time">(Time)</h4>
+                </div>
+                <div class="gif-background"></div>
+                <div class="main-bottom">
+                    <div class="temp-container">
+                        <h3 class="temp">(Temp)</h3>
+                        <h3 class="highlowtemp">(hightemp)/(lowtemp)</h3>
+                        <p class="desc">(Description)</p>
+                    </div>
+                    <i class="wi wi-day-sunny"></i>
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="details-top">
+                    <h2 class="details-title">Today's Forecast</h2>
+                    <ul id="details">
+                        <li>
+                            <i class="wi wi-humidity"></i>
+                            <h4>Humidity: </h4>
+                            <p id="humidity-output">(Output from API)</p>
+                        </li>
+                        <li>
+                            <i class="wi wi-strong-wind"></i>
+                            <h4>Wind Speed: </h4>
+                            <p id="windspeed-output">(Output from API)</p>
+                        </li>
+                        <li>
+                            <i class="wi wi-raindrop"></i>
+                            <h4>Rain Probability: </h4>
+                            <p id="rain-output">(Output from API)</p>
+                        </li>
+                        <li>
+                            <i class="wi wi-sunrise"></i>
+                            <h4>Sunrise: </h4>
+                            <p id="sunrise-output">(Output from API)</p>
+                        </li>
+                        <li>
+                            <i class="wi wi-sunset"></i>
+                            <h4>Sunset: </h4>
+                            <p id="sunset-output">(Output from API)</p>
+                        </li>
+                        <li>
+                            <i class="wi wi-thermometer"></i>
+                            <h4>UV Index: </h4>
+                            <p id="uv-output">(Output from API)</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="details-bottom">
+                    <h2 class="nextdays-title">Next Days</h2>
+                    <ul id="nextdays">
+                        <li>
+                            <div class="nextdays-top">
+                                <h3 class="nextdays-date">Date</h3>
+                                <h3 class="nextdays-day">Day</h3>
+                            </div>
+                            <div class="nextdays-bottom">
+                                <i class="wi wi-day-sunny"></i>
+                                <div class="nextdays-temps">
+                                    <h4 class="nextdays-high">hightemp</h4>
+                                    <h4 class="nextdays-low">lowtemp</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nextdays-top">
+                                <h3 class="nextdays-date">Date</h3>
+                                <h3 class="nextdays-day">Day</h3>
+                            </div>
+                            <div class="nextdays-bottom">
+                                <i class="wi wi-day-sunny"></i>
+                                <div class="nextdays-temps">
+                                    <h4 class="nextdays-high">hightemp</h4>
+                                    <h4 class="nextdays-low">lowtemp</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nextdays-top">
+                                <h3 class="nextdays-date">Date</h3>
+                                <h3 class="nextdays-day">Day</h3>
+                            </div>
+                            <div class="nextdays-bottom">
+                                <i class="wi wi-day-sunny"></i>
+                                <div class="nextdays-temps">
+                                    <h4 class="nextdays-high">hightemp</h4>
+                                    <h4 class="nextdays-low">lowtemp</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nextdays-top">
+                                <h3 class="nextdays-date">Date</h3>
+                                <h3 class="nextdays-day">Day</h3>
+                            </div>
+                            <div class="nextdays-bottom">
+                                <i class="wi wi-day-sunny"></i>
+                                <div class="nextdays-temps">
+                                    <h4 class="nextdays-high">hightemp</h4>
+                                    <h4 class="nextdays-low">lowtemp</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nextdays-top">
+                                <h3 class="nextdays-date">Date</h3>
+                                <h3 class="nextdays-day">Day</h3>
+                            </div>
+                            <div class="nextdays-bottom">
+                                <i class="wi wi-day-sunny"></i>
+                                <div class="nextdays-temps">
+                                    <h4 class="nextdays-high">hightemp</h4>
+                                    <h4 class="nextdays-low">lowtemp</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nextdays-top">
+                                <h3 class="nextdays-date">Date</h3>
+                                <h3 class="nextdays-day">Day</h3>
+                            </div>
+                            <div class="nextdays-bottom">
+                                <i class="wi wi-day-sunny"></i>
+                                <div class="nextdays-temps">
+                                    <h4 class="nextdays-high">hightemp</h4>
+                                    <h4 class="nextdays-low">lowtemp</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nextdays-top">
+                                <h3 class="nextdays-date">Date</h3>
+                                <h3 class="nextdays-day">Day</h3>
+                            </div>
+                            <div class="nextdays-bottom">
+                                <i class="wi wi-day-sunny"></i>
+                                <div class="nextdays-temps">
+                                    <h4 class="nextdays-high">hightemp</h4>
+                                    <h4 class="nextdays-low">lowtemp</h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
