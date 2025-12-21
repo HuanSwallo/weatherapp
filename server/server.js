@@ -30,6 +30,24 @@ app.get('/weather', async (req , res) => {
     }
 });
 
+app.get('/suggestions', async (req, res) => {
+    const { query } = req.query;
+    
+    if (!query || query.length < 2) {
+        return res.json([]);
+    }
+
+    try {
+        const url = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.WEATHER_API_KEY}`
+        const response = await fetch(url);
+        const data = await response.json();
+
+        res.json(data);
+    } catch (err) {
+        res.status(500).json({error: "Failed to fetch city suggestions"});
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
