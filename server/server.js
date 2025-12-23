@@ -12,14 +12,14 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/weather', async (req , res) => {
-    const { city } = req.query;
+    const { city, unit = "metric" } = req.query;
 
     if (!city) {
         return res.status(400).json({error: "City is required"});
     }
 
     try {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${process.env.WEATHER_API_KEY}&units=metric`;
 
         const response = await fetch(url);
         const data = await response.json();

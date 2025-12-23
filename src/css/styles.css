@@ -26,6 +26,7 @@ body {
 main {
     flex: 1;
     overflow-y: auto;
+    display: none;
 }
 
 li {
@@ -47,6 +48,10 @@ button{
     border: 0;
     border-radius: 32px;
     padding: 1rem;
+}
+
+#title-logo{
+    margin-right: 1rem;
 }
 
 #location{
@@ -179,7 +184,7 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 8px
 }
 
 .nextdays-top {
@@ -215,7 +220,7 @@ button{
     border-radius: 0.5rem;
     margin-top: 4px;
     padding: 0;
-    width: 26%;
+    width: 28%;
     max-height: 150px;
     overflow-y: auto;
     z-index: 9999;
