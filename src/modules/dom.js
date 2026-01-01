@@ -34,6 +34,7 @@ mainIconEl.className = `wi ${iconClass}`;
 
   // Details
   document.getElementById("humidity-output").textContent = `${currentData.main.humidity}%`;
+  document.getElementById("pressure-output").textContent = `${currentData.main.pressure} hPa`;
   document.getElementById("windspeed-output").textContent =
     `${currentData.wind.speed} ${unit === "metric" ? "m/s" : "mph"}`;
 

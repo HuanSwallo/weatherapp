@@ -1,13 +1,31 @@
 export function weatherToGif(main, isDay = true) {
-    console.log("weatherToGif called with:", main, isDay);
     const m = (main || "").toLowerCase();
+  const time = isDay ? "day" : "night";
 
-    if (m === "clear") return isDay ? "sunny sky" : "night sky stars";
-    if (m === "clouds") return "cloudy sky";
-    if (m === "rain" || m === "drizzle") return "rainy city";
-    if (m === "thunderstorm") return "thunderstorm lightning";
-    if (m === "snow") return "snow falling";
-    if (m === "mist" || m === "fog" || m === "haze" || m === "smoke") return "foggy street";
+  switch (m) {
+    case "clear":
+      return `clear weather ${time} background`;
 
-    return "weather";
+    case "clouds":
+      return `cloudy weather background`;
+
+    case "rain":
+    case "drizzle":
+      return `rain weather city background`;
+
+    case "thunderstorm":
+      return `thunderstorm weather lightning background`;
+
+    case "snow":
+      return `snow weather falling background`;
+
+    case "mist":
+    case "fog":
+    case "haze":
+    case "smoke":
+      return `fog weather street background`;
+
+    default:
+      return `weather ${time} background`;
+  }
 }

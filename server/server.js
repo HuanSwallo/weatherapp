@@ -66,16 +66,12 @@ app.get('/gif', async (req, res) => {
     }
 
     try {
-      const url = `https://api.giphy.com/v1/gifs/translate?api_key=${process.env.GIPHY_API_KEY}&s=${encodeURIComponent(query)}&rating=pg-13`;
+      const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${encodeURIComponent(query)}&rating=pg-13`;
       const response = await fetch(url);
       const data = await response.json();
       
-      // Try best available image URL
-      const gifUrl =
-        data?.data?.images?.original?.url ||
-        data?.data?.images?.downsized_large?.url ||
-        data?.data?.images?.downsized?.url ||
-        null;
+    const gifUrl =
+  data?.data?.[0]?.images?.original?.url ?? null;
 
       res.json({ gifUrl });
     } catch (err) {

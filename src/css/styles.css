@@ -1,9 +1,11 @@
 :root {
     /*Colors*/
-    --background-color: #343963;
+    --background-color: #1c1f35;
+    --background-light: #343963;
     --text-primary: #d8d9ed;
     --text-input: #fff;
     --border-color: #4e53b3;
+    --hover-color: rgba(255, 255, 255, 0.08)
 }
 
 *{
@@ -60,7 +62,7 @@ button{
 }
 
 #location{
-    background: var(--background-color);
+    background: var(--background-light);
     color: var(--text-input);
     font-size: 1rem;
     border: 1px solid var(--border-color);
@@ -80,9 +82,13 @@ button{
     margin-left: auto;
 }
 
+#unit-toggle:hover{
+    transform: scale(1.05);
+}
+
 .weather-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 24px;
     padding: 24px;
 }
@@ -112,21 +118,15 @@ button{
 }
 
 .gif-background {
-    min-height: 700px;
+    min-height: 800px;
     width: 100%;
-    background-color: red;
+    background-color: var(--background-color);
     background-size: cover;
     background-position: center;
     overflow: hidden;
     position: relative;
 }
 
-.gif-background::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25); /* adjust */
-}
 
 .main-bottom {
     display: flex;
@@ -145,7 +145,7 @@ button{
 }
 
 .main-bottom i {
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
 .weather-details {
@@ -161,14 +161,15 @@ button{
 #details {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
+    flex-grow: 1;
 }
 
 #details li {
     display: grid;
     grid-template-columns: 32px 1fr auto;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
 }
 
 #details i {
@@ -180,21 +181,24 @@ button{
 }
 
 .details-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     border-top: 1px solid #eee;
     padding-top: 16px;
+    margin-top: auto;
 }
 
 #nextdays {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
 }
 
 #nextdays li {
-    background: var(--background-color);
+    background: var(--background-light);
     border-radius: 6px;
     padding: 6px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -203,8 +207,9 @@ button{
 
 .nextdays-top {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
+    width: 100%;
 }
 
 .nextdays-day {
@@ -214,16 +219,15 @@ button{
 
 .nextdays-bottom {
     display: flex;
-    
+    justify-content: space-between;
+    width: 100%;
 }
 
 .nextdays-bottom i {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
-.nextdays-temps {
-    gap: 6px;
-}
+
 
 
 
@@ -248,5 +252,5 @@ button{
 }
 
 #suggestions li:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: var(--hover-color);
 }
