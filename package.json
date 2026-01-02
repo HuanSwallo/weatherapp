@@ -25,6 +25,8 @@
   "devDependencies": {
     "concurrently": "^9.2.1",
     "css-loader": "^7.1.2",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.5",
     "nodemon": "^3.1.11",

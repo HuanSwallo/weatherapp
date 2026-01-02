@@ -13,6 +13,6 @@ export function mapIconToWeatherIcon(iconCode) {
     "50": "wi-fog"
   };
 
-  const key = iconCode.slice(0, 2);
+  const key = iconCode.slice(0, 2); // removes last character (d or n)
   return baseMap[key] || "wi-na";
 }

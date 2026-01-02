@@ -1,5 +1,5 @@
 export function weatherToGif(main, isDay = true) {
-    const m = (main || "").toLowerCase();
+  const m = (main || "").toLowerCase();
   const time = isDay ? "day" : "night";
 
   switch (m) {
